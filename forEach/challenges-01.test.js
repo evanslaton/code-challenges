@@ -228,7 +228,18 @@ const createList = (availableItems) => {
 
 const fizzbuzz = (arr) => {
   // Solution code here...
-}
+  arr.forEach((number, index) => {
+    if (number % 3 === 0 && number % 5 === 0) {
+      arr[index] = 'Fizz Buzz';
+    } else if (number % 3 === 0) {
+      arr[index] = 'Fizz';
+    } else if (number % 5 === 0) {
+      arr[index] = 'Buzz';
+    }
+  });
+
+  return arr;
+};
 
 // ------------------------------------------------------------------------------------------------
 // TESTS
@@ -306,11 +317,11 @@ describe('Testing challenge 9', () => {
   });
 });
 
-// describe('Testing challenge 10', () => {
-//   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+describe('Testing challenge 10', () => {
+  const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
-//   test('It should print out messages or numbers', () => {
-//     expect(fizzbuzz(inputs)).toStrictEqual([ 1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16 ]);
-//     expect(fizzbuzz(inputs).length).toStrictEqual(16);
-//   });
-// });
+  test('It should print out messages or numbers', () => {
+    expect(fizzbuzz(inputs)).toStrictEqual([ 1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 7, 8, 'Fizz', 'Buzz', 11, 'Fizz', 13, 14, 'Fizz Buzz', 16 ]);
+    expect(fizzbuzz(inputs).length).toStrictEqual(16);
+  });
+});
