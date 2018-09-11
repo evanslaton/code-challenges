@@ -73,11 +73,13 @@ const addCurve = (arr) => {
 
 const greeting = (word) => {
   // Solution code here...
-}
+  return word.toUpperCase();
+};
 
 const speaker = (message, callback) => {
   // Solution code here...
-}
+  return callback(message);
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 5
@@ -224,11 +226,11 @@ describe('Testing challenge 3', () => {
   });
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should return the message with all uppercase characters', () => {
-//     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
-//   });
-// });
+describe('Testing challenge 4', () => {
+  test('It should return the message with all uppercase characters', () => {
+    expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should add the number 8 to the array five times', () => {
