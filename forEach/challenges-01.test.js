@@ -173,7 +173,7 @@ const removeWithForEach = (input, callback) => {
 const removeWithAnon = (input) => {
   // Solution code here...
   input.forEach((element, index, input) => {
-    if (input[index] % 3 === 2) {
+    if (element % 3 === 2) {
       input.pop();
     }
   });
