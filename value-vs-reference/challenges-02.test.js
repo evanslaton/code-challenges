@@ -11,8 +11,9 @@
 
 const appendTheEnd = (str) => {
   // Solution code here...
-  return str;
-}
+  const newStr = `${str} The end.`;
+  return newStr;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 2
@@ -31,7 +32,8 @@ const appendTheEnd = (str) => {
 
 const appendFirstToLast = (list) => {
   // Solution code here...
-}
+  list.push(list[0]);
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 3
@@ -50,7 +52,8 @@ const appendFirstToLast = (list) => {
 
 const addBirthYearProperty = (obj, year) => {
   // Solution code here...
-}
+  obj.yearBorn = year;
+};
 
 
 
@@ -72,7 +75,10 @@ const addBirthYearProperty = (obj, year) => {
 
 const setStatusAsAuthor = (people) => {
   // Solution code here...
-}
+  people.forEach((people) => {
+    people.isAuthor = true;
+  });
+};
 
 
 // ------------------------------------------------------------------------------------------------
@@ -94,8 +100,10 @@ const setStatusAsAuthor = (people) => {
 
 const append = (list1, list2) => {
   // Solution code here...
-
-}
+  list2.forEach((item) => {
+    list1.push(item);
+  });
+};
 
 // ------------------------------------------------------------------------------------------------
 // TESTS
