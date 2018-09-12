@@ -75,7 +75,10 @@ const addBirthYearProperty = (obj, year) => {
 
 const setStatusAsAuthor = (people) => {
   // Solution code here...
-}
+  people.forEach((people) => {
+    people.isAuthor = true;
+  });
+};
 
 
 // ------------------------------------------------------------------------------------------------
