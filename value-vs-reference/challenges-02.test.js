@@ -11,8 +11,9 @@
 
 const appendTheEnd = (str) => {
   // Solution code here...
-  return str;
-}
+  const newStr = `${str} The end.`;
+  return newStr;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 2
