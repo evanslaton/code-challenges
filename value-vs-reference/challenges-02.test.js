@@ -32,7 +32,8 @@ const appendTheEnd = (str) => {
 
 const appendFirstToLast = (list) => {
   // Solution code here...
-}
+  list.push(list[0]);
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 3
@@ -51,7 +52,8 @@ const appendFirstToLast = (list) => {
 
 const addBirthYearProperty = (obj, year) => {
   // Solution code here...
-}
+  obj.yearBorn = year;
+};
 
 
 
