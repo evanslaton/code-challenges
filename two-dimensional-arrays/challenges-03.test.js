@@ -154,7 +154,7 @@ const battleship = (board, row, col) => {
   if (board[row][col] === '#') {
     return 'hit';
   } else {
-    return 'miss'
+    return 'miss';
   }
 };
 
@@ -170,7 +170,16 @@ const battleship = (board, row, col) => {
 
 const calculateProduct = (numbers) => {
   // Solution code here...
-}
+  const reducedArray = [];
+
+  numbers.forEach((numbers) => {
+    if (numbers.length > 0) {
+      reducedArray.push(numbers.reduce((accumulator, currentValue) => accumulator * currentValue));
+    }
+  });
+
+  return reducedArray.reduce((accumulator, currentValue) => accumulator * currentValue);
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 8
@@ -348,18 +357,18 @@ describe('Testing challenge 6', () => {
   });
 });
 
-// describe('Testing challenge 7', () => {
-//   test('It should multiply all the numbers together', () => {
-//     expect(calculateProduct([[1,2], [3,4], [5,6]])).toStrictEqual(720);
-//   });
+describe('Testing challenge 7', () => {
+  test('It should multiply all the numbers together', () => {
+    expect(calculateProduct([[1,2], [3,4], [5,6]])).toStrictEqual(720);
+  });
 
-//   test('It should return zero if there are any zeroes in the data', () => {
-//     expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
-//   });
-//   test('It should work even if some of the arrays contain no numbers', () => {
-//     expect(calculateProduct([[1,2], [], [3,4,5]])).toStrictEqual(120);
-//   });
-// });
+  test('It should return zero if there are any zeroes in the data', () => {
+    expect(calculateProduct([[2, 3, 4, 6, 0], [4, 3, 7], [2, 4, 6]])).toStrictEqual(0);
+  });
+  test('It should work even if some of the arrays contain no numbers', () => {
+    expect(calculateProduct([[1,2], [], [3,4,5]])).toStrictEqual(120);
+  });
+});
 
 // describe('Testing challenge 8', () => {
 //   test('It should calculate and return the average temperature of the data set', () => {
