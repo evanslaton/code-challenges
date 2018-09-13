@@ -200,7 +200,18 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
-}
+  const allDailyTemps = [];
+  let numberOfDays = 0;
+
+  weather.forEach((dailyAverages) => {
+    dailyAverages.forEach((dailyTemps) => {
+      allDailyTemps.push(dailyTemps);
+      numberOfDays++;
+    });
+  });
+
+  return allDailyTemps.reduce((accumulator, currentValue) => accumulator + currentValue) / numberOfDays;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 9
@@ -370,11 +381,11 @@ describe('Testing challenge 7', () => {
   });
 });
 
-// describe('Testing challenge 8', () => {
-//   test('It should calculate and return the average temperature of the data set', () => {
-//     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
-//   });
-// });
+describe('Testing challenge 8', () => {
+  test('It should calculate and return the average temperature of the data set', () => {
+    expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
+  });
+});
 
 // describe('Testing challenge 9', () => {
 //   test('It should return the lowest weekly average temperature within the data set', () => {
