@@ -233,7 +233,21 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
-}
+  const DAYS_IN_A_WEEK = 7;
+  let lowestAverageWeeklyTemp;
+
+  weather.forEach((dailyAverages) => {
+    const weeklyAverageTemp = dailyAverages.reduce((accumulator, currentValue) => accumulator + currentValue) / DAYS_IN_A_WEEK;
+
+    if (!lowestAverageWeeklyTemp) {
+      lowestAverageWeeklyTemp = weeklyAverageTemp;
+    } else if (weeklyAverageTemp < lowestAverageWeeklyTemp) {
+      lowestAverageWeeklyTemp = weeklyAverageTemp;
+    }
+  });
+
+  return lowestAverageWeeklyTemp;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 10
@@ -387,12 +401,12 @@ describe('Testing challenge 8', () => {
   });
 });
 
-// describe('Testing challenge 9', () => {
-//   test('It should return the lowest weekly average temperature within the data set', () => {
-//     expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
-//     expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
-//   });
-// });
+describe('Testing challenge 9', () => {
+  test('It should return the lowest weekly average temperature within the data set', () => {
+    expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
+    expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
+  });
+});
 
 // describe('Testing challenge 10', () => {
 //   test('It should return the total count for each row', () => {
