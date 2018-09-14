@@ -83,7 +83,7 @@ const matchMonth = (input) => {
 
 const noPunctuation = input => {
   // Solution code here...
-  return input.match(/[\w]+\s/g)
+  return input.match(/[\w]+\s/g);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -101,6 +101,7 @@ const noPunctuation = input => {
 
 let hangman = (str) => {
   // Solution code here...
+  return str.replace(/[aeiou]/g, '_');
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -184,30 +185,30 @@ const findShells = (phrase) => {
 //   });
 // });
 
-describe('Testing challenge 5', () => {
-  const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
+// describe('Testing challenge 5', () => {
+//   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
-  test('It should only return words that are immediately followed by a space', () => {
-    expect(noPunctuation(lorem)).toStrictEqual([ 'Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ' ]);
-    expect(noPunctuation(lorem).length).toStrictEqual(23);
-  });
-
-  test('It should not contain words that are followed by any non-space character', () => {
-    expect(noPunctuation(lorem)).not.toContain(['amet,', 'elit.', 'egestas.', 'elit,', 'sed.', 'sem,', 'diam.', 'nibh.', 'porttitor.', 'euismod,', 'ultrices.', 'massa,', 'vel,', 'purus.', 'purus,', 'odio.', 'aliquet,', 'non,', 'sem.'])
-  });
-});
-
-// describe('Testing challenge 6', () => {
-//   let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
-
-//   test('It should remove the vowels from the hangman string and replace them with underscores', () => {
-//     expect(hangman(startString)).toStrictEqual('Th_s _s _ r_g_x ch_ll_ng_. W_ _r_ try_ng t_ cr__t_ _ h_ngm_n phr_s_ wh_r_ _ll _f th_ v_w_ls _r_ m_ss_ng!');
+//   test('It should only return words that are immediately followed by a space', () => {
+//     expect(noPunctuation(lorem)).toStrictEqual([ 'Lorem ', 'ipsum ', 'dolor ', 'sit ', 'consectetur ', 'adipiscing ', 'Cras ', 'lacinia ', 'vel ', 'massa ', 'sed ', 'Nunc ', 'faucibus ', 'iaculis ', 'a ', 'scelerisque ', 'enim ', 'condimentum ', 'Aenean ', 'ac ', 'scelerisque ', 'et ', 'pharetra ' ]);
+//     expect(noPunctuation(lorem).length).toStrictEqual(23);
 //   });
 
-//   test('It should not contain the letters "a", "e", "i", "o", or "u"', () => {
-//     expect(hangman(startString)).not.toContain('a', 'e', 'i', 'o', 'u');
+//   test('It should not contain words that are followed by any non-space character', () => {
+//     expect(noPunctuation(lorem)).not.toContain(['amet,', 'elit.', 'egestas.', 'elit,', 'sed.', 'sem,', 'diam.', 'nibh.', 'porttitor.', 'euismod,', 'ultrices.', 'massa,', 'vel,', 'purus.', 'purus,', 'odio.', 'aliquet,', 'non,', 'sem.'])
 //   });
 // });
+
+describe('Testing challenge 6', () => {
+  let startString = 'This is a regex challenge. We are trying to create a hangman phrase where all of the vowels are missing!';
+
+  test('It should remove the vowels from the hangman string and replace them with underscores', () => {
+    expect(hangman(startString)).toStrictEqual('Th_s _s _ r_g_x ch_ll_ng_. W_ _r_ try_ng t_ cr__t_ _ h_ngm_n phr_s_ wh_r_ _ll _f th_ v_w_ls _r_ m_ss_ng!');
+  });
+
+  test('It should not contain the letters "a", "e", "i", "o", or "u"', () => {
+    expect(hangman(startString)).not.toContain('a', 'e', 'i', 'o', 'u');
+  });
+});
 
 // describe('Testing challenge 7', () => {
 //   test('It should return an array of instances of "sells", shells", and "seashells"', () => {
