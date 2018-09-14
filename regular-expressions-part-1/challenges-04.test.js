@@ -72,7 +72,7 @@ const citiesAtoJ = (cities) => {
 
 const matchMonth = (input) => {
   // Solution code here...
-  return input.toString().search(/(\bOct\b|\boct\b|\bOctober\b|\boctober\b)/) !== -1 ? true : false;
+  return input.toString().search(/(\b[Oo]ct\b|\b[Oo]ctober\b)/) !== -1 ? true : false;
 };
 
 // ------------------------------------------------------------------------------------------------
