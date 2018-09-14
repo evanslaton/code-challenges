@@ -30,14 +30,7 @@ const isNum = (num) => {
 
 const isCapitalized = (string) => {
   // Solution code here...
-  const words = string.split(' ');
-  const capitalizedWords = [];
-
-  words.forEach((word) => {
-    if (word.match(/^[A-Z]/)) capitalizedWords.push(word);
-  });
-
-  return capitalizedWords;
+  return string.match(/[A-Z]\w+/g);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -150,14 +143,14 @@ const findShells = (phrase) => {
 //   });
 // });
 
-// describe('Testing challenge 2', () => {
-//   test('It should only return words that begin with a capital letter', () => {
-//     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
+describe('Testing challenge 2', () => {
+  test('It should only return words that begin with a capital letter', () => {
+    const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
-//     expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
-//     expect(capitalResult.length).toStrictEqual(5);
-//   });
-// });
+    expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
+    expect(capitalResult.length).toStrictEqual(5);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
@@ -172,23 +165,23 @@ const findShells = (phrase) => {
 //   });
 // });
 
-describe('Testing challenge 4', () => {
-  test('It should match any of the acceptable inputs', () => {
-    expect(matchMonth('Oct')).toBeTruthy();
-    expect(matchMonth('oct')).toBeTruthy();
-    expect(matchMonth('October')).toBeTruthy();
-    expect(matchMonth('october')).toBeTruthy();
-  });
+// describe('Testing challenge 4', () => {
+//   test('It should match any of the acceptable inputs', () => {
+//     expect(matchMonth('Oct')).toBeTruthy();
+//     expect(matchMonth('oct')).toBeTruthy();
+//     expect(matchMonth('October')).toBeTruthy();
+//     expect(matchMonth('october')).toBeTruthy();
+//   });
 
-  test('It should not match anything other than the acceptable inputs', () => {
-    expect(matchMonth('November')).toBeFalsy();
-    expect(matchMonth('nov')).toBeFalsy();
-    expect(matchMonth(123)).toBeFalsy();
-    expect(matchMonth('octob')).toBeFalsy();
-    expect(matchMonth('OCTOBER')).toBeFalsy();
-    expect(matchMonth('notOctober')).toBeFalsy();
-  });
-});
+//   test('It should not match anything other than the acceptable inputs', () => {
+//     expect(matchMonth('November')).toBeFalsy();
+//     expect(matchMonth('nov')).toBeFalsy();
+//     expect(matchMonth(123)).toBeFalsy();
+//     expect(matchMonth('octob')).toBeFalsy();
+//     expect(matchMonth('OCTOBER')).toBeFalsy();
+//     expect(matchMonth('notOctober')).toBeFalsy();
+//   });
+// });
 
 // describe('Testing challenge 5', () => {
 //   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
