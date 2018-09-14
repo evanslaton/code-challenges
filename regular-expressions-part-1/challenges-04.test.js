@@ -30,6 +30,14 @@ const isNum = (num) => {
 
 const isCapitalized = (string) => {
   // Solution code here...
+  const words = string.split(' ');
+  const capitalizedWords = [];
+
+  words.forEach((word) => {
+    if (word.match(/^[A-Z]/)) capitalizedWords.push(word);
+  });
+
+  return capitalizedWords;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -120,28 +128,28 @@ const findShells = (phrase) => {
 //
 // ------------------------------------------------------------------------------------------------
 
-describe('Testing challenge 1', () => {
-  test('It should return true if the input is a number', () => {
-    expect(isNum(1234567890)).toBeTruthy();
-    expect(isNum('12345')).toBeTruthy();
-  });
-  test('It should return true if the input contains a number', () => {
-    expect(isNum('h3llo w0rld')).toBeTruthy();
-  });
-  test('It should return false if the input does not contain a number', () => {
-    expect(isNum('hello world')).toBeFalsy();
-    expect(isNum('')).toBeFalsy();
-  });
-});
-
-// describe('Testing challenge 2', () => {
-//   test('It should only return words that begin with a capital letter', () => {
-//     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
-
-//     expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
-//     expect(capitalResult.length).toStrictEqual(5);
+// describe('Testing challenge 1', () => {
+//   test('It should return true if the input is a number', () => {
+//     expect(isNum(1234567890)).toBeTruthy();
+//     expect(isNum('12345')).toBeTruthy();
+//   });
+//   test('It should return true if the input contains a number', () => {
+//     expect(isNum('h3llo w0rld')).toBeTruthy();
+//   });
+//   test('It should return false if the input does not contain a number', () => {
+//     expect(isNum('hello world')).toBeFalsy();
+//     expect(isNum('')).toBeFalsy();
 //   });
 // });
+
+describe('Testing challenge 2', () => {
+  test('It should only return words that begin with a capital letter', () => {
+    const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
+
+    expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
+    expect(capitalResult.length).toStrictEqual(5);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
