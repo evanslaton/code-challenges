@@ -207,6 +207,7 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  return str.replace(/[aeiou]/ig, '');
 };
 
 /*------------------------------------------------------------------------
@@ -292,30 +293,30 @@ Run your tests from the console: jest challenges-05.test.js
 //   });
 // });
 
-describe('Testing challenge 8', () => {
-  test('It should shorten the string based on the first argument', () => {
-    expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
-    expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
-  });
-  test('It should return the complete string when passed a negative number', () => {
-    expect(removeLastCharacters('hello', -1)).toStrictEqual('hello');
-    expect(removeLastCharacters('wowow', -700)).toStrictEqual('wowow');
-  });
-  test('It should return an empty string when called with a number larger than the string length', () => {
-    expect(removeLastCharacters('hello', 12)).toStrictEqual('');
-    expect(removeLastCharacters('', 1)).toStrictEqual('');
-    expect(removeLastCharacters('a', 1)).toStrictEqual('');
-  });
-});
-
-// describe('Testing challenge 9', () => {
-//   test('It should return the string without vowels', () => {
-//     expect(removeVowels('gregor')).toStrictEqual('grgr');
-//     expect(removeVowels('gregor').length).toStrictEqual(4);
-//     expect(removeVowels('asdf')).toStrictEqual('sdf');
-//     expect(removeVowels('why')).toStrictEqual('why');
+// describe('Testing challenge 8', () => {
+//   test('It should shorten the string based on the first argument', () => {
+//     expect(removeLastCharacters('Gregor', 2)).toStrictEqual('Greg');
+//     expect(removeLastCharacters('Gregor', 2).length).toStrictEqual(4);
+//   });
+//   test('It should return the complete string when passed a negative number', () => {
+//     expect(removeLastCharacters('hello', -1)).toStrictEqual('hello');
+//     expect(removeLastCharacters('wowow', -700)).toStrictEqual('wowow');
+//   });
+//   test('It should return an empty string when called with a number larger than the string length', () => {
+//     expect(removeLastCharacters('hello', 12)).toStrictEqual('');
+//     expect(removeLastCharacters('', 1)).toStrictEqual('');
+//     expect(removeLastCharacters('a', 1)).toStrictEqual('');
 //   });
 // });
+
+describe('Testing challenge 9', () => {
+  test('It should return the string without vowels', () => {
+    expect(removeVowels('gregor')).toStrictEqual('grgr');
+    expect(removeVowels('gregor').length).toStrictEqual(4);
+    expect(removeVowels('asdf')).toStrictEqual('sdf');
+    expect(removeVowels('why')).toStrictEqual('why');
+  });
+});
 
 // describe('Testing challenge 10', () => {
 //   test('It should return the string without vowels', () => {
