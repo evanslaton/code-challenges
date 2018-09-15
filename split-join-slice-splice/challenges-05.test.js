@@ -90,14 +90,22 @@ const gruffaloCrumble = {
     'Spread the crisp evenly over the gruffalo mixture',
     'Bake for 12-15 hours',
   ]
-}
+};
 
 
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  recipe.ingredients.forEach((ingredient) => {
+    const sliceIndex = ingredient.indexOf(' ') + 1;
+    const ingredientWithFirstSpaceRemoved = ingredient.slice(sliceIndex);
+    const sliceIndexAgain = ingredientWithFirstSpaceRemoved.indexOf(' ') + 1;
+    const ingredientNameOnly = ingredientWithFirstSpaceRemoved.slice(sliceIndexAgain);
+    result.push(ingredientNameOnly);
+  });
+
   return result;
-}
+};
 
 /*------------------------------------------------------------------------
 CHALLENGE 5
@@ -129,7 +137,7 @@ const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
   return result;
-}
+};
 
 /*------------------------------------------------------------------------
 CHALLENGE 7
@@ -221,12 +229,12 @@ Run your tests from the console: jest challenges-05.test.js
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should add up the numbers contained within the string', () => {
-    expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
-    expect(totalSumCSV('147')).toStrictEqual(147);
-  });
-});
+// describe('Testing challenge 3', () => {
+//   test('It should add up the numbers contained within the string', () => {
+//     expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
+//     expect(totalSumCSV('147')).toStrictEqual(147);
+//   });
+// });
 
 // describe('Testing challenge 4', () => {
 //   test('It should return a list of foods', () => {
@@ -235,11 +243,11 @@ describe('Testing challenge 3', () => {
 //   });
 // });
 
-// describe('Testing challenge 5', () => {
-//   test('It should return a list of foods', () => {
-//     expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
-//   });
-// });
+describe('Testing challenge 5', () => {
+  test('It should return a list of foods', () => {
+    expect(splitFoods(gruffaloCrumble)).toStrictEqual(['Gruffalo', 'oats', 'brown sugar', 'flour', 'pure maple syrup', 'chopped nuts', 'baking soda', 'baking powder', 'cinnamon', 'melted butter', 'fresh water']);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should return a list of recipe steps', () => {
