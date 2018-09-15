@@ -33,6 +33,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  return arr.split('');
 };
 
 /*------------------------------------------------------------------------
@@ -198,23 +199,23 @@ Run your tests from the console: jest challenges-05.test.js
 
 ------------------------------------------------------------------------*/
 
-describe('Testing challenge 1', () => {
-  test('It should return a list of shortening words', () => {
-    expect(howMuchPencil('Welcome')).toStrictEqual(['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', '']);
-    expect(howMuchPencil('Welcome').length).toStrictEqual(8);
-    expect(howMuchPencil('')).toStrictEqual(['']);
-    expect(howMuchPencil('abc')).toStrictEqual(['abc', 'bc', 'c', '']);
-  });
-});
-
-// describe('Testing challenge 2', () => {
-//   test('It should return an array of individual letters', () => {
-//     expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
-//     expect(wordsToCharList('Gregor').length).toStrictEqual(6);
-//     expect(wordsToCharList('hooray')).toStrictEqual(['h', 'o', 'o', 'r', 'a', 'y']);
-//     expect(wordsToCharList('')).toStrictEqual([]);
+// describe('Testing challenge 1', () => {
+//   test('It should return a list of shortening words', () => {
+//     expect(howMuchPencil('Welcome')).toStrictEqual(['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', '']);
+//     expect(howMuchPencil('Welcome').length).toStrictEqual(8);
+//     expect(howMuchPencil('')).toStrictEqual(['']);
+//     expect(howMuchPencil('abc')).toStrictEqual(['abc', 'bc', 'c', '']);
 //   });
 // });
+
+describe('Testing challenge 2', () => {
+  test('It should return an array of individual letters', () => {
+    expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
+    expect(wordsToCharList('Gregor').length).toStrictEqual(6);
+    expect(wordsToCharList('hooray')).toStrictEqual(['h', 'o', 'o', 'r', 'a', 'y']);
+    expect(wordsToCharList('')).toStrictEqual([]);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   test('It should add up the numbers contained within the string', () => {
