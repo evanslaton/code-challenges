@@ -45,6 +45,10 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 const totalSumCSV = (str) => {
   let total = 0;
   // Solution code here...
+  str.split(',').forEach((number) => {
+    total += parseInt(number);
+  });
+
   return total;
 };
 
@@ -208,21 +212,21 @@ Run your tests from the console: jest challenges-05.test.js
 //   });
 // });
 
-describe('Testing challenge 2', () => {
-  test('It should return an array of individual letters', () => {
-    expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
-    expect(wordsToCharList('Gregor').length).toStrictEqual(6);
-    expect(wordsToCharList('hooray')).toStrictEqual(['h', 'o', 'o', 'r', 'a', 'y']);
-    expect(wordsToCharList('')).toStrictEqual([]);
-  });
-});
-
-// describe('Testing challenge 3', () => {
-//   test('It should add up the numbers contained within the string', () => {
-//     expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
-//     expect(totalSumCSV('147')).toStrictEqual(147);
+// describe('Testing challenge 2', () => {
+//   test('It should return an array of individual letters', () => {
+//     expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
+//     expect(wordsToCharList('Gregor').length).toStrictEqual(6);
+//     expect(wordsToCharList('hooray')).toStrictEqual(['h', 'o', 'o', 'r', 'a', 'y']);
+//     expect(wordsToCharList('')).toStrictEqual([]);
 //   });
 // });
+
+describe('Testing challenge 3', () => {
+  test('It should add up the numbers contained within the string', () => {
+    expect(totalSumCSV('1,4,5,7,2')).toStrictEqual(19);
+    expect(totalSumCSV('147')).toStrictEqual(147);
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should return a list of foods', () => {
