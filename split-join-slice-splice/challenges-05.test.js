@@ -224,16 +224,7 @@ const extractVowels = (str) => {
   // Solution code here...
   const arr = [];
   arr.push(removeVowels(str));
-  // arr.push(str.match(/[aeiou]/ig).join(''));
-
-  // Accounts for the letter 'u' being at the end of the vowel list in the test
-  const vowels = str.match(/[aeio]/ig).join('');
-  if (str.match(/[u]/ig)) {
-    const u = str.match(/[u]/ig);
-    arr.push(vowels + u);
-  } else {
-    arr.push(vowels);
-  }
+  arr.push(str.match(/[aeiou]/ig).sort().join(''));
 
   return arr;
 };
