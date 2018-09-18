@@ -104,7 +104,18 @@ hasChildrenValues(characters, 'Eddard') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-}
+  let hasChildren = false;
+
+  arr.forEach((obj, index) => {
+    if (obj.name === character) {
+      if (Object.values(arr[index].children).length !== 0) {
+        hasChildren = true;
+      }
+    }
+  });
+
+  return hasChildren;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -181,22 +192,22 @@ Run your tests from the console: jest challenges-06.test.js
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('something specific', () => {
-    expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
-    expect(getHouses(characters).length).toStrictEqual(7);
-  });
-});
-
-// describe('Testing challenge 4', () => {
-//   test('It should return true for characters that have children', () => {
-//     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
-//   });
-
-//   test('It should return false to characters who do not have children', () => {
-//     expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
+// describe('Testing challenge 3', () => {
+//   test('something specific', () => {
+//     expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
+//     expect(getHouses(characters).length).toStrictEqual(7);
 //   });
 // });
+
+describe('Testing challenge 4', () => {
+  test('It should return true for characters that have children', () => {
+    expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
+  });
+
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should return true for characters that have children', () => {
