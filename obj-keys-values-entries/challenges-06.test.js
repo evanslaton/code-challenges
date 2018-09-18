@@ -14,7 +14,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 const getCourseKeys = (obj) => {
   // Solution code here...
   return Object.keys(obj);
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -71,7 +71,8 @@ let characters = [
 
 const totalCharacters = (arr) => {
   // Solution code here...
-}
+  return Object.keys(arr).length;
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -82,8 +83,12 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  arr.forEach((obj, index) => {
+    houses.push(Object.values(arr[index].house).join(''));
+  });
+
   return houses;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -164,11 +169,11 @@ Run your tests from the console: jest challenges-06.test.js
 
 ------------------------------------------------------------------------------------------------*/
 
-describe('Testing challenge 1', () => {
-  test('It should return the keys from an object', () => {
-    expect(getCourseKeys(courseInfo)).toStrictEqual([ 'name', 'duration', 'topics', 'finalExam' ]);
-  });
-});
+// describe('Testing challenge 1', () => {
+//   test('It should return the keys from an object', () => {
+//     expect(getCourseKeys(courseInfo)).toStrictEqual([ 'name', 'duration', 'topics', 'finalExam' ]);
+//   });
+// });
 
 // describe('Testing challenge 2', () => {
 //   test('something specific', () => {
@@ -176,12 +181,12 @@ describe('Testing challenge 1', () => {
 //   });
 // });
 
-// describe('Testing challenge 3', () => {
-//   test('something specific', () => {
-//     expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
-//     expect(getHouses(characters).length).toStrictEqual(7);
-//   });
-// });
+describe('Testing challenge 3', () => {
+  test('something specific', () => {
+    expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
+    expect(getHouses(characters).length).toStrictEqual(7);
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should return true for characters that have children', () => {
