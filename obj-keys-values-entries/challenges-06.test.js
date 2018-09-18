@@ -127,7 +127,20 @@ The input and output of this function are the same as the input and output from 
 
 const hasChildrenEntries = (arr, character) => {
   // Solution code here...
-}
+  let hasChildren = false;
+
+  arr.forEach((obj, index) => {
+    if (obj.name === character) {
+      if (Object.entries(arr[index].children).length !== 0) {
+        hasChildren = true;
+      } else {
+        hasChildren = false;
+      }
+    }
+  });
+
+  return hasChildren;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -199,25 +212,25 @@ Run your tests from the console: jest challenges-06.test.js
 //   });
 // });
 
-describe('Testing challenge 4', () => {
-  test('It should return true for characters that have children', () => {
-    expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
-  });
-
-  test('It should return false to characters who do not have children', () => {
-    expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
-  });
-});
-
-// describe('Testing challenge 5', () => {
+// describe('Testing challenge 4', () => {
 //   test('It should return true for characters that have children', () => {
-//     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
+//     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
 //   });
 
 //   test('It should return false to characters who do not have children', () => {
-//     expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
+//     expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
 //   });
 // });
+
+describe('Testing challenge 5', () => {
+  test('It should return true for characters that have children', () => {
+    expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
+  });
+
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should return an object for each house containing the name and size', () => {
