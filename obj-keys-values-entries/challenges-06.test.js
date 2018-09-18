@@ -155,8 +155,24 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 const houseSize = (arr) => {
   const sizes = [];
   // Solution code here...
+  const createHouse = (house, members) => ({
+    house,
+    members,
+  });
+
+  arr.forEach((obj) => {
+    const house = Object.entries(obj)[3][1];
+    let members = 1 + Object.entries(obj)[2][1].length;
+
+    if (Object.values(obj)[1]) {
+      members++;
+    }
+
+    sizes.push(createHouse(house, members));
+  });
+
   return sizes;
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -222,22 +238,22 @@ Run your tests from the console: jest challenges-06.test.js
 //   });
 // });
 
-describe('Testing challenge 5', () => {
-  test('It should return true for characters that have children', () => {
-    expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
-  });
+// describe('Testing challenge 5', () => {
+//   test('It should return true for characters that have children', () => {
+//     expect(hasChildrenEntries(characters, 'Eddard')).toBeTruthy();
+//   });
 
-  test('It should return false to characters who do not have children', () => {
-    expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
-  });
-});
-
-// describe('Testing challenge 6', () => {
-//   test('It should return an object for each house containing the name and size', () => {
-//     expect(houseSize(characters)).toStrictEqual([ { house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
-//     expect(houseSize(characters).length).toStrictEqual(7);
+//   test('It should return false to characters who do not have children', () => {
+//     expect(hasChildrenEntries(characters, 'Jon')).toBeFalsy();
 //   });
 // });
+
+describe('Testing challenge 6', () => {
+  test('It should return an object for each house containing the name and size', () => {
+    expect(houseSize(characters)).toStrictEqual([ { house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
+    expect(houseSize(characters).length).toStrictEqual(7);
+  });
+});
 
 // describe('Testing challenge 7', () => {
 //   test('It should not include any deceased spouses', () => {
