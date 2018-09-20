@@ -26,6 +26,7 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (input) => {
   // Solution code here...
+  return input.filter((word) => word.match(/[aeiou]/i));
 };
 
 
@@ -172,27 +173,27 @@ Run your tests from the console: jest challenges-08.test.js
 
 ------------------------------------------------------------------------------------------------*/
 
-describe('Testing challenge 1', () => {
-  test('It should return an array containing only odd integers', () => {
-    expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 3, 5, 7, 9]);
-    expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).length).toStrictEqual(5);
-    expect(oddValues([2,3,4,179])).toStrictEqual([3,179]);
-    expect(oddValues([2,4,6,8])).toStrictEqual([]);
-  });
-});
-
-// describe('Testing challenge 2', () => {
-//   test('It should return an array containing only words that have vowels', () => {
-//     expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
-//     expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
-//     expect(filterStringsWithVowels(['a', 'b', 'cdefg'])).toStrictEqual(['a', 'cdefg']);
-//     expect(filterStringsWithVowels(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ''])).toStrictEqual(['a', 'e', 'i', 'o', 'u']);
+// describe('Testing challenge 1', () => {
+//   test('It should return an array containing only odd integers', () => {
+//     expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toStrictEqual([1, 3, 5, 7, 9]);
+//     expect(oddValues([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]).length).toStrictEqual(5);
+//     expect(oddValues([2,3,4,179])).toStrictEqual([3,179]);
+//     expect(oddValues([2,4,6,8])).toStrictEqual([]);
 //   });
-
-//   test('It should not contain any words that do not contain vowels', () => {
-//     expect(filterStringsWithVowels(['gregor','hound','xyz'])).not.toContain('xyz');
-//   })
 // });
+
+describe('Testing challenge 2', () => {
+  test('It should return an array containing only words that have vowels', () => {
+    expect(filterStringsWithVowels(['gregor','hound','xyz'])).toStrictEqual(['gregor', 'hound']);
+    expect(filterStringsWithVowels(['gregor','hound','xyz']).length).toStrictEqual(2);
+    expect(filterStringsWithVowels(['a', 'b', 'cdefg'])).toStrictEqual(['a', 'cdefg']);
+    expect(filterStringsWithVowels(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ''])).toStrictEqual(['a', 'e', 'i', 'o', 'u']);
+  });
+
+  test('It should not contain any words that do not contain vowels', () => {
+    expect(filterStringsWithVowels(['gregor','hound','xyz'])).not.toContain('xyz');
+  })
+});
 
 // describe('Testing challenge 3', () => {
 //   const firstNums = [1, 2, 3];
