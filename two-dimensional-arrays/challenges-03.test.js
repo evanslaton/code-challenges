@@ -28,8 +28,14 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
+  const totalCookiesPerHour = [];
 
-}
+  for (let i = 0; i < hoursOpen.length; i++) {
+    totalCookiesPerHour.push(firstPike[i] + seaTac[i] + seattleCenter[i] + capHill[i] + alkiBeach[i]);
+  }
+
+  return totalCookiesPerHour;
+};
 
 
 
@@ -46,6 +52,18 @@ const grandTotal = (stores) => {
 
 const salesData = (hours, data) => {
   // Solution code here...
+  const hourlySalesData = [];
+
+  data.forEach((data, index) => {
+    const salesInfo = {
+      sales: `${data} cookies`,
+      time: hours[index],
+    };
+
+    hourlySalesData.push(salesInfo);
+  });
+
+  return hourlySalesData;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -62,6 +80,17 @@ const salesData = (hours, data) => {
 
 const giveValentines = (list) => {
   // Solution code here...
+  const valentinesGiven = [];
+
+  list.forEach((valentineGiver) => {
+    list.forEach((valentineReceiver) => {
+      if (valentineGiver !== valentineReceiver) {
+        valentinesGiven.push(`${valentineGiver} gives a Valentine to ${valentineReceiver}.`);
+      }
+    });
+  });
+
+  return valentinesGiven;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -75,7 +104,8 @@ const nestedArray = [ [ [1, 2, 3], [4, 5, 6] ], [ [7, 8, 9], [10, 11, 12] ], [ [
 
 const findFourteen = (array) => {
   // Solution code here...
-}
+  return array[2][0][1];
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 5
@@ -94,11 +124,12 @@ const errands = [
   { store: 'Pet store',
     items: [ { name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 } ]
   }
-]
+];
 
 const howManyTreats = (arr) => {
   // Solution code here...
-}
+  return arr[2].items[1].quantity;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 6
@@ -120,7 +151,12 @@ const howManyTreats = (arr) => {
 
 const battleship = (board, row, col) => {
   //  Solution code here...
-}
+  if (board[row][col] === '#') {
+    return 'hit';
+  } else {
+    return 'miss';
+  }
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 7
@@ -134,7 +170,16 @@ const battleship = (board, row, col) => {
 
 const calculateProduct = (numbers) => {
   // Solution code here...
-}
+  const reducedArray = [];
+
+  numbers.forEach((numbers) => {
+    if (numbers.length > 0) {
+      reducedArray.push(numbers.reduce((accumulator, currentValue) => accumulator * currentValue));
+    }
+  });
+
+  return reducedArray.reduce((accumulator, currentValue) => accumulator * currentValue);
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 8
@@ -155,7 +200,18 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
-}
+  const allDailyTemps = [];
+  let numberOfDays = 0;
+
+  weather.forEach((dailyAverages) => {
+    dailyAverages.forEach((dailyTemps) => {
+      allDailyTemps.push(dailyTemps);
+      numberOfDays++;
+    });
+  });
+
+  return allDailyTemps.reduce((accumulator, currentValue) => accumulator + currentValue) / numberOfDays;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 9
@@ -177,7 +233,21 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
-}
+  const DAYS_IN_A_WEEK = 7;
+  let lowestAverageWeeklyTemp;
+
+  weather.forEach((dailyAverages) => {
+    const weeklyAverageTemp = dailyAverages.reduce((accumulator, currentValue) => accumulator + currentValue) / DAYS_IN_A_WEEK;
+
+    if (!lowestAverageWeeklyTemp) {
+      lowestAverageWeeklyTemp = weeklyAverageTemp;
+    } else if (weeklyAverageTemp < lowestAverageWeeklyTemp) {
+      lowestAverageWeeklyTemp = weeklyAverageTemp;
+    }
+  });
+
+  return lowestAverageWeeklyTemp;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 10
@@ -206,7 +276,22 @@ const lowestWeeklyAverage = (weather) => {
 
 const excel = (str) => {
   // Solution code here...
-}
+  const sumOfEachRow = [];
+  const splitStr = str.split('\n');
+
+  for (let i = 0; i < splitStr.length; i++) {
+    let rowSum = 0;
+    const splitAgain = splitStr[i].split(',');
+
+    for (let j = 0; j < splitAgain.length; j++) {
+      rowSum += parseInt(splitAgain[j]);
+    }
+
+    sumOfEachRow.push(rowSum);
+  }
+
+  return sumOfEachRow;
+};
 
 
 // ------------------------------------------------------------------------------------------------
