@@ -151,6 +151,7 @@ const characters = [
 
 const getCharactersWithoutChildren = (input) => {
   // Solution code here...
+  return input.filter((character) => character.children === undefined);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -233,33 +234,33 @@ Run your tests from the console: jest challenges-08.test.js
 //   });
 // });
 
-describe('Testing challenge 5', () => {
-  test('It should return the name of the stats that exceed that maximum', () => {
-    expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
-    expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
-  });
+// describe('Testing challenge 5', () => {
+//   test('It should return the name of the stats that exceed that maximum', () => {
+//     expect(getStatName(snorlaxData.stats, 50)).toStrictEqual([ 'special-defense', 'special-attack' ]);
+//     expect(getStatName(snorlaxData.stats, 50).length).toStrictEqual(2);
+//   });
 
-  test('It should return the name of the stats that exceed that maximum', () => {
-    expect(getStatName(snorlaxData.stats, 120)).toStrictEqual([]);
-    expect(getStatName(snorlaxData.stats, 120).length).toStrictEqual(0);
-  });
+//   test('It should return the name of the stats that exceed that maximum', () => {
+//     expect(getStatName(snorlaxData.stats, 120)).toStrictEqual([]);
+//     expect(getStatName(snorlaxData.stats, 120).length).toStrictEqual(0);
+//   });
 
-  test('It should work for non-snorlax data', () => {
-    expect(getStatName([
-      {baseStat: 10, stat: {name: 'one'}},
-      {baseStat: -85, stat: {name: 'two'}},
-      {baseStat: 0, stat: {name: 'three'}},
-      {baseStat: -50, stat: {name: 'four'}}
-    ], -60)).toStrictEqual(['one', 'three', 'four']);
-  });
-});
-
-// describe('Testing challenge 6', () => {
-//   test('It should return an array containing characters who do not have children', () => {
-//     expect(getCharactersWithoutChildren(characters)).toStrictEqual([ { name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' } ]);
-//     expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
+//   test('It should work for non-snorlax data', () => {
+//     expect(getStatName([
+//       {baseStat: 10, stat: {name: 'one'}},
+//       {baseStat: -85, stat: {name: 'two'}},
+//       {baseStat: 0, stat: {name: 'three'}},
+//       {baseStat: -50, stat: {name: 'four'}}
+//     ], -60)).toStrictEqual(['one', 'three', 'four']);
 //   });
 // });
+
+describe('Testing challenge 6', () => {
+  test('It should return an array containing characters who do not have children', () => {
+    expect(getCharactersWithoutChildren(characters)).toStrictEqual([ { name: 'Sansa', spouse: 'Tyrion', house: 'Stark' }, { name: 'Jon', spouse: null, house: 'Snow' } ]);
+    expect(getCharactersWithoutChildren(characters).length).toStrictEqual(2);
+  });
+});
 
 // describe('Testing challenge 7', () => {
 //   test('It should remove non-integers and return "even" or "odd', () => {
