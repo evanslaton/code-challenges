@@ -119,7 +119,7 @@ Write a function that, given an array of numbers as input, uses ONE call to filt
 
 const calculateAverage = (input) => {
   // Solution code here...
-
+  return input.filter((number) => typeof(number) === 'number').reduce((a, b) => a + b) / input.length;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -251,17 +251,17 @@ Run your tests from the console: jest challenges-09.test.js
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should return any stats that match the input', () => {
-    expect(extractStat('speed', snorlaxData.stats)).toStrictEqual({ stat: { url: 'https://pokeapi.co/api/v2/stat/6/', name: 'speed' }, effort: 5, baseStat: 30 });
-  });
-});
-
-// describe('Testing challenge 4', () => {
-//   test('It should return the average of the numbers in the array', () => {
-//     expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
+// describe('Testing challenge 3', () => {
+//   test('It should return any stats that match the input', () => {
+//     expect(extractStat('speed', snorlaxData.stats)).toStrictEqual({ stat: { url: 'https://pokeapi.co/api/v2/stat/6/', name: 'speed' }, effort: 5, baseStat: 30 });
 //   });
 // });
+
+describe('Testing challenge 4', () => {
+  test('It should return the average of the numbers in the array', () => {
+    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should return an array containing the names of the children', () => {
