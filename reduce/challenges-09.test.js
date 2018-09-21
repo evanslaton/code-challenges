@@ -184,7 +184,8 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (input) => {
   // Solution code here...
-}
+  return input.reduce((accumulator, currentValue) => isPrime(currentValue) ? accumulator + 1 : accumulator, 0);
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -287,17 +288,17 @@ Run your tests from the console: jest challenges-09.test.js
 //   });
 // });
 
-describe('Testing challenge 6', () => {
-  test('It should return the string with the characters in reverse order', () => {
-    expect(reversedString('Code 301')).toStrictEqual('103 edoC');
-  });
-});
-
-// describe('Testing challenge 7', () => {
-//   test('It should return a count of the prime numbers in the array', () => {
-//     expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
+// describe('Testing challenge 6', () => {
+//   test('It should return the string with the characters in reverse order', () => {
+//     expect(reversedString('Code 301')).toStrictEqual('103 edoC');
 //   });
 // });
+
+describe('Testing challenge 7', () => {
+  test('It should return a count of the prime numbers in the array', () => {
+    expect(countPrimeNumbers([1, 2, 13, 64, 45, 56, 17, 8])).toStrictEqual(3);
+  });
+});
 
 // describe('Testing challenge 8', () => {
 //   test('It should return a count of the prime numbers in the array', () => {
