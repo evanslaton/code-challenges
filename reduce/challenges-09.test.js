@@ -10,6 +10,7 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (input) => {
   // Solution code here...
+  return input.reduce((accumulator, currentValue, index) => index + 1);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -63,6 +64,7 @@ const characters = [
 
 const countNumberOfChildren = (input) => {
   // Solution code here...
+  return input.reduce((accumulator, currentValue) => currentValue.children ? accumulator + currentValue.children.length : accumulator, 0);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -106,6 +108,7 @@ const snorlaxData = {
 
 const extractStat = (statName, input) => {
   // Solution code here...
+  return input.reduce((accumulator, currentValue) => !accumulator && currentValue.stat.name === statName ? accumulator = currentValue : accumulator , null);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -116,6 +119,7 @@ Write a function that, given an array of numbers as input, uses ONE call to filt
 
 const calculateAverage = (input) => {
   // Solution code here...
+  return input.filter((number) => typeof(number) === 'number').reduce((a, b) => a + b) / input.length;
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -130,6 +134,17 @@ Write a function named extractChildren that, given the array of characters from 
 
 const extractChildren = input => {
   // Solution code here...
+  return input.filter((character) => character.name.search(/[a]/) > -1)
+    .reduce((accumulator, currentValue) => {
+      if (currentValue.children) {
+        currentValue.children.forEach((child) => {
+          accumulator.push(child);
+        });
+        return accumulator;
+      } else {
+        return accumulator;
+      }
+    }, []);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -142,6 +157,12 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (input) => {
   // Solution code here...
+  return input.split('')
+    .reduce((accumulator, currentValue) => {
+      accumulator.unshift(currentValue);
+      return accumulator;
+    }, [])
+    .join('');
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -163,7 +184,8 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (input) => {
   // Solution code here...
-}
+  return input.reduce((accumulator, currentValue) => isPrime(currentValue) ? accumulator + 1 : accumulator, 0);
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -223,6 +245,10 @@ let starWarsData = [{
 
 const returnNames = (data) => {
   // Solution code here...
+  return data.reduce((accumulator, currentValue) => {
+    accumulator.push(currentValue.name);
+    return accumulator;
+  }, []);
 };
 
 /*------------------------------------------------------------------------------------------------
