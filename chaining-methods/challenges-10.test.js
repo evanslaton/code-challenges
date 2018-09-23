@@ -32,6 +32,8 @@ Note: You might need to use the same method more than once.
 
 const totalSum = (input) => {
   // Solution code here...
+  return input.reduce((accumulator, currentValue) => accumulator.concat(currentValue), [])
+    .reduce((accumulator, currentValue) => accumulator + currentValue);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -137,25 +139,25 @@ Run your tests from the console: jest challenges-10.test.js
 
 ------------------------------------------------------------------------------------------------*/
 
-describe('Testing challenge 1', () => {
-  test('It should return the number of times the input is in the nested arrays', () => {
-    expect(count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(4);
-    expect(count(3, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(2);
-    expect(count(12, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(0);
-  });
-  test('It should work on empty arrays', () => {
-    expect(count(5, [[1, 3, 5, 7, 9], [], [5, 5, 5], [1, 2, 3], []])).toStrictEqual(4);
-    expect(count(5, [])).toStrictEqual(0);
-  })
-});
-
-// describe('Testing challenge 2', () => {
-//   test('It should add all the numbers in the arrays', () => {
-//     const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
-
-//     expect(totalSum(nums)).toStrictEqual(66);
+// describe('Testing challenge 1', () => {
+//   test('It should return the number of times the input is in the nested arrays', () => {
+//     expect(count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(4);
+//     expect(count(3, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(2);
+//     expect(count(12, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]])).toStrictEqual(0);
 //   });
+//   test('It should work on empty arrays', () => {
+//     expect(count(5, [[1, 3, 5, 7, 9], [], [5, 5, 5], [1, 2, 3], []])).toStrictEqual(4);
+//     expect(count(5, [])).toStrictEqual(0);
+//   })
 // });
+
+describe('Testing challenge 2', () => {
+  test('It should add all the numbers in the arrays', () => {
+    const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
+
+    expect(totalSum(nums)).toStrictEqual(66);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
