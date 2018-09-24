@@ -124,6 +124,17 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  return data.filter((character) => character.gender === 'male' || character.gender === 'female')
+  .reduce((accumulator, currentValue) => {
+    console.log(currentValue.name);
+    if (accumulator.length === 0) {
+      accumulator.push(currentValue.name);
+      return accumulator;
+    } else {
+      accumulator.push(` and ${currentValue.name}`)
+      return accumulator;
+    }
+  }, []).join('');
 }
 
 /*------------------------------------------------------------------------------------------------
@@ -167,26 +178,26 @@ Run your tests from the console: jest challenges-10.test.js
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
-    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
-  });
+// describe('Testing challenge 3', () => {
+//   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
+//     expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
+//   });
 
-  test('It should return an empty array if none of the numbers are divisible by five', () => {
-    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
-  });
+//   test('It should return an empty array if none of the numbers are divisible by five', () => {
+//     expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
+//   });
 
-  test('It should return an empty array if the values are not numbers', () => {
-    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
-  });
-});
-
-// describe('Testing challenge 4', () => {
-//   test('It should return only characters that are male or female', () => {
-//     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
-//     expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
+//   test('It should return an empty array if the values are not numbers', () => {
+//     expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
 //   });
 // });
+
+describe('Testing challenge 4', () => {
+  test('It should return only characters that are male or female', () => {
+    expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
+    expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should return the name of the shortest character', () => {
