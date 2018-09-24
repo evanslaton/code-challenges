@@ -12,6 +12,14 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
+  return input.reduce((accumulator, currentValue) => accumulator.concat(currentValue), [])
+    .reduce((accumulator, currentValue) => {
+      if (currentValue === target) {
+        return accumulator + 1;
+      } else {
+        return accumulator;
+      }
+    }, 0);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -24,6 +32,8 @@ Note: You might need to use the same method more than once.
 
 const totalSum = (input) => {
   // Solution code here...
+  return input.reduce((accumulator, currentValue) => accumulator.concat(currentValue), [])
+    .reduce((accumulator, currentValue) => accumulator + currentValue);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -40,6 +50,14 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  return input.map((currentArray) => {
+    return currentArray.filter((currentValue) => {
+      if (typeof currentValue === 'number' && currentValue % 5 === 0) {
+        return currentValue;
+      }
+    })
+      .map((currentValue) => 2 ** currentValue)
+  })
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -106,7 +124,18 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
-}
+  return data.filter((character) => character.gender === 'male' || character.gender === 'female')
+  .reduce((accumulator, currentValue) => {
+    console.log(currentValue.name);
+    if (accumulator.length === 0) {
+      accumulator.push(currentValue.name);
+      return accumulator;
+    } else {
+      accumulator.push(` and ${currentValue.name}`)
+      return accumulator;
+    }
+  }, []).join('');
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -116,7 +145,16 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
-}
+  return data.map((character) => character.name)
+    .reduce((accumulator, currentValue) => {
+      console.log(currentValue);
+      if (currentValue.length <= accumulator.length) {
+        return accumulator = currentValue;
+      } else {
+        return accumulator;
+      }
+  })
+};
 
 /*------------------------------------------------------------------------------------------------
 TESTS
