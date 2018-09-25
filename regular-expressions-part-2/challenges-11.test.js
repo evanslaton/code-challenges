@@ -23,7 +23,9 @@ For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'
 
 const findTagNames = elements => {
   // Solution code here...
-}
+  return elements.map((element) => element.match(/\/\w+/g))
+    .reduce((accumulator, currentValue) => accumulator.concat(currentValue, []));
+};
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -81,27 +83,27 @@ DO NOT CHANGE any of the below code.
 Run your tests from the console: jest solutions-11.test.js
 ------------------------------------------------------------------------------------------------*/
 
-describe('Testing challenge 1', () => {
-  test('It should validate a PIN of exactly four digits', () => {
-    expect(validatePin(1234)).toBeTruthy();
-    expect(validatePin(123)).toBeFalsy();
-    expect(validatePin(12345)).toBeFalsy();
-    expect(validatePin('abcd')).toBeFalsy();
-    expect(validatePin('7890')).toBeTruthy();
-    expect(validatePin('0789')).toBeTruthy();
-    expect(validatePin(789)).toBeFalsy();
-    expect(validatePin('0000')).toBeTruthy();
-  });
-});
-
-// describe('Testing challenge 2', () => {
-//   test('It should return the closing tags', () => {
-//     expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/p' ]);
-//   });
-//   test('It should work if there are multiple closing tags in a single string', () => {
-//     expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/div', '/p' ]);
+// describe('Testing challenge 1', () => {
+//   test('It should validate a PIN of exactly four digits', () => {
+//     expect(validatePin(1234)).toBeTruthy();
+//     expect(validatePin(123)).toBeFalsy();
+//     expect(validatePin(12345)).toBeFalsy();
+//     expect(validatePin('abcd')).toBeFalsy();
+//     expect(validatePin('7890')).toBeTruthy();
+//     expect(validatePin('0789')).toBeTruthy();
+//     expect(validatePin(789)).toBeFalsy();
+//     expect(validatePin('0000')).toBeTruthy();
 //   });
 // });
+
+describe('Testing challenge 2', () => {
+  test('It should return the closing tags', () => {
+    expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/p' ]);
+  });
+  test('It should work if there are multiple closing tags in a single string', () => {
+    expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/div', '/p' ]);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   test('It should match a basic email', () => {
