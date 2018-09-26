@@ -8,6 +8,7 @@ Write a function named sortBackwards that takes in an array of numbers and retur
 
 const sortBackwards = (nums) => {
   // Solution code here...
+  return nums.sort((a, b) => b - a);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -22,6 +23,7 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (strings) => {
   // Solution code here...
+  return strings.sort();
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -32,6 +34,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (strings) => {
   // Solution code here...
+  return strings.sort((a, b) => a.length - b.length);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -44,6 +47,15 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (strs) => {
   // Solution code here...
+  return strs.sort((a, b) => {
+    if (a.toUpperCase() > b.toUpperCase()) {
+      return 1;
+    } else if (a.toUpperCase() < b.toUpperCase()) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -61,6 +73,7 @@ Here is an example of the input:
 
 const sortByPrice = (objs) => {
   // Solution code here...
+  return objs.sort((a, b) => a.price - b.price);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -73,6 +86,7 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (nums) => {
   // Solution code here...
+  return nums.sort((a, b) => a.length.toString() - b.toString().length);
 };
 
 /*-----------------------------------------------------------------------------------------------
@@ -90,11 +104,12 @@ function Person(firstName, lastName, age) {
 const people = [
   new Person('Wes', 'Washington', 25),
   new Person('Casey', 'Codefellow', 38),
-  new Person('Stan', 'Seattle', 67),
+  new Person('Stan', 'Seattle', 67)
 ];
 
 const sortPeople = (people) => {
   // Solution code here...
+  return people.sort((a, b) => a.lastName > b.lastName);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -107,6 +122,14 @@ If two people share the same last name, alphabetize on their first name. If two 
 
 const sortPeopleBetter = (people) => {
   // Solution code here...
+  return sortPeople(people)
+    .sort((a, b) => {
+      if (a.firstName === b.firstName) {
+        return a.age - b.age ? 1 : -1;
+      } else {
+        return a.firstname > a.lastName ? 1 : -1;
+      }
+    });
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -128,11 +151,20 @@ const meetings = [
   new Meeting('Tuesday', '1145', '1315'),
   new Meeting('Wednesday', '0930', '1000'),
   new Meeting('Monday', '0900', '0945'),
-  new Meeting('Friday', '1200', '1345'),
+  new Meeting('Friday', '1200', '1345')
 ];
 
 const sortMeetingsByDay = (meetings) => {
   // Solution code here...
+  const days = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+  };
+
+  return meetings.sort((a, b) => days[a.dayOfWeek] - days[b.dayOfWeek]);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -147,6 +179,12 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 
 const sortSchedule = (meetings) => {
   // Solution code here...
+  return sortMeetingsByDay(meetings)
+    .sort((a, b) => {
+      if (a.dayOfWeek === b.dayOfWeek) {
+        return (parseInt(a.end) - parseInt(a.start)) > (parseInt(b.end) - parseInt(b.start));
+      }
+    });
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -241,17 +279,17 @@ describe('Testing challenge 8', () => {
       new Person('Casey', 'Codefellows', 37),
       new Person('Charlie', 'Codefellows', 21),
       new Person('Charles', 'Codefellows', 29),
-      new Person('Carol', 'Codefellow', 88),
+      new Person('Carol', 'Codefellow', 88)
     ];
     expect(sortPeopleBetter(family)).toStrictEqual([
       new Person('Carol', 'Codefellow', 88),
       new Person('Casey', 'Codefellows', 37),
       new Person('Casey', 'Codefellows', 55),
       new Person('Charles', 'Codefellows', 29),
-      new Person('Charlie', 'Codefellows', 21),
+      new Person('Charlie', 'Codefellows', 21)
     ]);
-    expect(sortPeopleBetter([{firstName: 'andrew', lastName: 'apple'}, {firstName: 'andre', lastName: 'apple'}]))
-      .toStrictEqual([{firstName: 'andre', lastName: 'apple'}, {firstName: 'andrew', lastName: 'apple'}]);
+    expect(sortPeopleBetter([{firstName: 'andrew', lastName: 'apple',}, {firstName: 'andre', lastName: 'apple',}]))
+      .toStrictEqual([{firstName: 'andre', lastName: 'apple',}, {firstName: 'andrew', lastName: 'apple',}]);
   });
 });
 
@@ -273,7 +311,7 @@ describe('Testing challenge 10', () => {
       new Meeting('Tuesday', '1145', '1315'),
       new Meeting('Wednesday', '0930', '1000'),
       new Meeting('Wednesday', '1300', '1500'),
-      new Meeting('Friday', '1200', '1345'),
+      new Meeting('Friday', '1200', '1345')
     ]);
   });
 });
