@@ -34,6 +34,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (strings) => {
   // Solution code here...
+  return strings.sort((a, b) => a.length - b.length);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -172,24 +173,24 @@ Run your tests from the console: jest challenges-12.test.js
 //   });
 // });
 
-describe('Testing challenge 2', () => {
-  test('It should sort strings alphabetically', () => {
-    expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
-    expect(alphabetize(['alphabet','Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'alphabet', 'carrot']);
-    expect(alphabetize([])).toStrictEqual([]);
-  });
-});
-
-// describe('Testing challenge 3', () => {
-//   test('It should sort strings by length', () => {
-//     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-//     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
-//     expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
-//     expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
-//     expect(sortByLength(['a'])).toStrictEqual(['a']);
-//     expect(sortByLength([])).toStrictEqual([]);
+// describe('Testing challenge 2', () => {
+//   test('It should sort strings alphabetically', () => {
+//     expect(alphabetize(['alphabet', 'Zebra', 'Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'Zebra', 'alphabet', 'carrot']);
+//     expect(alphabetize(['alphabet','Alphabet', 'carrot'])).toStrictEqual([ 'Alphabet', 'alphabet', 'carrot']);
+//     expect(alphabetize([])).toStrictEqual([]);
 //   });
 // });
+
+describe('Testing challenge 3', () => {
+  test('It should sort strings by length', () => {
+    const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
+    expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
+    expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
+    expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
+    expect(sortByLength(['a'])).toStrictEqual(['a']);
+    expect(sortByLength([])).toStrictEqual([]);
+  });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should alphabetize without regard to capitalization', () => {
