@@ -73,6 +73,7 @@ Here is an example of the input:
 
 const sortByPrice = (objs) => {
   // Solution code here...
+  return objs.sort((a, b) => a.price - b.price);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -201,30 +202,30 @@ Run your tests from the console: jest challenges-12.test.js
 //   });
 // });
 
-describe('Testing challenge 4', () => {
-  test('It should alphabetize without regard to capitalization', () => {
-    expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
-    const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-    expect(ans.slice(0,2)).toEqual(expect.arrayContaining([ 'Alphabet','alphabet']));
-    expect(ans.slice(2)).toStrictEqual(['carrot', 'Zebra']);
-  });
-});
-
-// describe('Testing challenge 5', () => {
-//   test('It should sort items by their price', () => {
-//     expect(sortByPrice([
-//       {name: 'Sweatshirt', price: 45},
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Tote bag', price: 15}
-//     ])).toStrictEqual([
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Tote bag', price: 15},
-//       {name: 'Sweatshirt', price: 45},
-//     ]);
-//     expect(sortByPrice([{price: 12}, {price: 10}])).toStrictEqual([{price: 10}, {price: 12}]);
-//     expect(sortByPrice([])).toStrictEqual([]);
+// describe('Testing challenge 4', () => {
+//   test('It should alphabetize without regard to capitalization', () => {
+//     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
+//     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
+//     expect(ans.slice(0,2)).toEqual(expect.arrayContaining([ 'Alphabet','alphabet']));
+//     expect(ans.slice(2)).toStrictEqual(['carrot', 'Zebra']);
 //   });
 // });
+
+describe('Testing challenge 5', () => {
+  test('It should sort items by their price', () => {
+    expect(sortByPrice([
+      {name: 'Sweatshirt', price: 45},
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Tote bag', price: 15}
+    ])).toStrictEqual([
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Tote bag', price: 15},
+      {name: 'Sweatshirt', price: 45},
+    ]);
+    expect(sortByPrice([{price: 12}, {price: 10}])).toStrictEqual([{price: 10}, {price: 12}]);
+    expect(sortByPrice([])).toStrictEqual([]);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should sort numbers by their length', () => {
