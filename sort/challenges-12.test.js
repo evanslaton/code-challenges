@@ -104,7 +104,7 @@ function Person(firstName, lastName, age) {
 const people = [
   new Person('Wes', 'Washington', 25),
   new Person('Casey', 'Codefellow', 38),
-  new Person('Stan', 'Seattle', 67),
+  new Person('Stan', 'Seattle', 67)
 ];
 
 const sortPeople = (people) => {
@@ -122,6 +122,14 @@ If two people share the same last name, alphabetize on their first name. If two 
 
 const sortPeopleBetter = (people) => {
   // Solution code here...
+  return sortPeople(people)
+    .sort((a, b) => {
+      if (a.firstName === b.firstName) {
+        return a.age - b.age ? 1 : -1;
+      } else {
+        return a.firstname > a.lastName ? 1 : -1;
+      }
+    });
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -143,7 +151,7 @@ const meetings = [
   new Meeting('Tuesday', '1145', '1315'),
   new Meeting('Wednesday', '0930', '1000'),
   new Meeting('Monday', '0900', '0945'),
-  new Meeting('Friday', '1200', '1345'),
+  new Meeting('Friday', '1200', '1345')
 ];
 
 const sortMeetingsByDay = (meetings) => {
@@ -237,38 +245,38 @@ Run your tests from the console: jest challenges-12.test.js
 //   });
 // });
 
-describe('Testing challenge 7', () => {
-  test('It should sort people by their last names', () => {
-    expect(sortPeople(people)).toStrictEqual([
-      new Person('Casey', 'Codefellow', 38),
-      new Person('Stan', 'Seattle', 67),
-      new Person('Wes', 'Washington', 25),
-    ]);
-    expect(sortPeople([{lastName: 'banana'}, {lastName: 'apple'}]))
-      .toStrictEqual([{lastName: 'apple'}, {lastName: 'banana'}]);
-  });
-});
-
-// describe('Testing challenge 8', () => {
-//   test('It should sort people with more strict ordering', () => {
-//     const family = [
-//       new Person('Casey', 'Codefellows', 55),
-//       new Person('Casey', 'Codefellows', 37),
-//       new Person('Charlie', 'Codefellows', 21),
-//       new Person('Charles', 'Codefellows', 29),
-//       new Person('Carol', 'Codefellow', 88),
-//     ];
-//     expect(sortPeopleBetter(family)).toStrictEqual([
-//       new Person('Carol', 'Codefellow', 88),
-//       new Person('Casey', 'Codefellows', 37),
-//       new Person('Casey', 'Codefellows', 55),
-//       new Person('Charles', 'Codefellows', 29),
-//       new Person('Charlie', 'Codefellows', 21),
+// describe('Testing challenge 7', () => {
+//   test('It should sort people by their last names', () => {
+//     expect(sortPeople(people)).toStrictEqual([
+//       new Person('Casey', 'Codefellow', 38),
+//       new Person('Stan', 'Seattle', 67),
+//       new Person('Wes', 'Washington', 25),
 //     ]);
-//     expect(sortPeopleBetter([{firstName: 'andrew', lastName: 'apple'}, {firstName: 'andre', lastName: 'apple'}]))
-//       .toStrictEqual([{firstName: 'andre', lastName: 'apple'}, {firstName: 'andrew', lastName: 'apple'}]);
+//     expect(sortPeople([{lastName: 'banana'}, {lastName: 'apple'}]))
+//       .toStrictEqual([{lastName: 'apple'}, {lastName: 'banana'}]);
 //   });
 // });
+
+describe('Testing challenge 8', () => {
+  test('It should sort people with more strict ordering', () => {
+    const family = [
+      new Person('Casey', 'Codefellows', 55),
+      new Person('Casey', 'Codefellows', 37),
+      new Person('Charlie', 'Codefellows', 21),
+      new Person('Charles', 'Codefellows', 29),
+      new Person('Carol', 'Codefellow', 88)
+    ];
+    expect(sortPeopleBetter(family)).toStrictEqual([
+      new Person('Carol', 'Codefellow', 88),
+      new Person('Casey', 'Codefellows', 37),
+      new Person('Casey', 'Codefellows', 55),
+      new Person('Charles', 'Codefellows', 29),
+      new Person('Charlie', 'Codefellows', 21)
+    ]);
+    expect(sortPeopleBetter([{firstName: 'andrew', lastName: 'apple',}, {firstName: 'andre', lastName: 'apple',}]))
+      .toStrictEqual([{firstName: 'andre', lastName: 'apple',}, {firstName: 'andrew', lastName: 'apple',}]);
+  });
+});
 
 // describe('Testing challenge 9', () => {
 //   test('It should sort meetings by the day on which they happen', () => {
