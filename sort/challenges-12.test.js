@@ -109,6 +109,7 @@ const people = [
 
 const sortPeople = (people) => {
   // Solution code here...
+  return people.sort((a, b) => a.lastName > b.lastName);
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -228,25 +229,25 @@ Run your tests from the console: jest challenges-12.test.js
 //   });
 // });
 
-describe('Testing challenge 6', () => {
-  test('It should sort numbers by their length', () => {
-    expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
-    expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
-    expect(sortNumbersByLength([1,2,3])).toEqual(expect.arrayContaining([1,2,3]))
-  });
-});
-
-// describe('Testing challenge 7', () => {
-//   test('It should sort people by their last names', () => {
-//     expect(sortPeople(people)).toStrictEqual([
-//       new Person('Casey', 'Codefellow', 38),
-//       new Person('Stan', 'Seattle', 67),
-//       new Person('Wes', 'Washington', 25),
-//     ]);
-//     expect(sortPeople([{lastName: 'banana'}, {lastName: 'apple'}]))
-//       .toStrictEqual([{lastName: 'apple'}, {lastName: 'banana'}]);
+// describe('Testing challenge 6', () => {
+//   test('It should sort numbers by their length', () => {
+//     expect(sortNumbersByLength([10, 2.8, 1, -47.75])).toStrictEqual([1, 10, 2.8, -47.75]);
+//     expect(sortNumbersByLength([100, 2.82, 1, -47.75])).toStrictEqual([1, 100, 2.82, -47.75]);
+//     expect(sortNumbersByLength([1,2,3])).toEqual(expect.arrayContaining([1,2,3]))
 //   });
 // });
+
+describe('Testing challenge 7', () => {
+  test('It should sort people by their last names', () => {
+    expect(sortPeople(people)).toStrictEqual([
+      new Person('Casey', 'Codefellow', 38),
+      new Person('Stan', 'Seattle', 67),
+      new Person('Wes', 'Washington', 25),
+    ]);
+    expect(sortPeople([{lastName: 'banana'}, {lastName: 'apple'}]))
+      .toStrictEqual([{lastName: 'apple'}, {lastName: 'banana'}]);
+  });
+});
 
 // describe('Testing challenge 8', () => {
 //   test('It should sort people with more strict ordering', () => {
