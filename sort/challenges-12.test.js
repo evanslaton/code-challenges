@@ -47,6 +47,15 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (strs) => {
   // Solution code here...
+  return strs.sort((a, b) => {
+    if (a.toUpperCase() > b.toUpperCase()) {
+      return 1;
+    } else if (a.toUpperCase() < b.toUpperCase()) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
 };
 
 /*------------------------------------------------------------------------------------------------
@@ -181,25 +190,25 @@ Run your tests from the console: jest challenges-12.test.js
 //   });
 // });
 
-describe('Testing challenge 3', () => {
-  test('It should sort strings by length', () => {
-    const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-    expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
-    expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
-    expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
-    expect(sortByLength(['a'])).toStrictEqual(['a']);
-    expect(sortByLength([])).toStrictEqual([]);
-  });
-});
-
-// describe('Testing challenge 4', () => {
-//   test('It should alphabetize without regard to capitalization', () => {
-//     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
-//     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
-//     expect(ans.slice(0,2)).toEqual(expect.arrayContaining([ 'Alphabet','alphabet']));
-//     expect(ans.slice(2)).toStrictEqual(['carrot', 'Zebra']);
+// describe('Testing challenge 3', () => {
+//   test('It should sort strings by length', () => {
+//     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
+//     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
+//     expect(ans.slice(2,4)).toEqual(expect.arrayContaining(['Alphabet', 'alphabet']));
+//     expect(sortByLength(['a', 'bc', ''])).toStrictEqual(['', 'a', 'bc']);
+//     expect(sortByLength(['a'])).toStrictEqual(['a']);
+//     expect(sortByLength([])).toStrictEqual([]);
 //   });
 // });
+
+describe('Testing challenge 4', () => {
+  test('It should alphabetize without regard to capitalization', () => {
+    expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
+    const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
+    expect(ans.slice(0,2)).toEqual(expect.arrayContaining([ 'Alphabet','alphabet']));
+    expect(ans.slice(2)).toStrictEqual(['carrot', 'Zebra']);
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should sort items by their price', () => {
