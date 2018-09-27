@@ -148,6 +148,7 @@ const sortByDay = (eventStrings) => {
 
 const characterByIndex = (strs) => {
   // Solution code here...
+  return strs.map((word, index) => word.charAt(index));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -271,12 +272,12 @@ describe('Testing challenge 9', () => {
   });
 });
 
-// describe('Testing challenge 10', () => {
-//   test('It should return the ith character of the ith string', () => {
-//     const words = ['apple', 'banana', 'cantaloupe'];
+describe('Testing challenge 10', () => {
+  test('It should return the ith character of the ith string', () => {
+    const words = ['apple', 'banana', 'cantaloupe'];
 
-//     expect(characterByIndex(words)).toStrictEqual(['a', 'a', 'n']);
-//     expect(characterByIndex(['abc', 'def', 'ghi'])).toStrictEqual(['a', 'e', 'i']);
-//     expect(characterByIndex(['wow', 'wow', 'wow'])).toStrictEqual(['w', 'o', 'w']);
-//   });
-// });
+    expect(characterByIndex(words)).toStrictEqual(['a', 'a', 'n']);
+    expect(characterByIndex(['abc', 'def', 'ghi'])).toStrictEqual(['a', 'e', 'i']);
+    expect(characterByIndex(['wow', 'wow', 'wow'])).toStrictEqual(['w', 'o', 'w']);
+  });
+});
