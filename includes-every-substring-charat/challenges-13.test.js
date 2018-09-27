@@ -61,6 +61,7 @@ const onlyOddChars = (str) => {
 
 const allHappy = (strs) => {
   // Solution code here...
+  return strs.every((word) => word.includes(':)'));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -195,15 +196,15 @@ describe('Testing challenge 4', () => {
   });
 });
 
-// describe('Testing challenge 5', () => {
-//   test('It should correctly assess whether all the strings are happy', () => {
-//     const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
+describe('Testing challenge 5', () => {
+  test('It should correctly assess whether all the strings are happy', () => {
+    const words = ['things', 'apple (:)', ':)banana', 'missing that thing', 'cant:)aloupe'];
 
-//     expect(allHappy(words)).toStrictEqual(false);
-//     expect(allHappy(['apple (:)', ':)banana', 'cant:)aloupe'])).toStrictEqual(true);
-//     expect(allHappy([])).toStrictEqual(true);
-//   });
-// });
+    expect(allHappy(words)).toStrictEqual(false);
+    expect(allHappy(['apple (:)', ':)banana', 'cant:)aloupe'])).toStrictEqual(true);
+    expect(allHappy([])).toStrictEqual(true);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should find all the strings that contain a given string', () => {
