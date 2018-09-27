@@ -127,7 +127,7 @@ const sortPeopleBetter = (people) => {
       if (a.firstName === b.firstName) {
         return a.age - b.age ? 1 : -1;
       } else {
-        return a.firstname > a.lastName ? 1 : -1;
+        return a.firstname > b.firstname ? 1 : -1;
       }
     });
 };
