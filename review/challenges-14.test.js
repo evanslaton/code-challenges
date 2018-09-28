@@ -160,8 +160,9 @@ const helperFunction = (row1, col1, row2, col2, row3, col3, board) => {
 // https:/missingslash.org returns false because url malformed
 // ------------------------------------------------------------------------------------------------
 const isSecure = (url) => {
-// Solution code here...
-}
+  // Solution code here...
+  return url.slice(0, 8) === 'https://' ? true : false;
+};
 
 // ------------------------------------------------------------------------------------------------
 // TESTS
@@ -236,12 +237,12 @@ describe('Testing challenge 4', () => {
   });
 });
 
-// describe('Testing challenge 5', () => {
-//   test('It should check if url is https', () => {
+describe('Testing challenge 5', () => {
+  test('It should check if url is https', () => {
 
-//     expect(isSecure('http://www.insecure.com')).toBe(false); 
-//     expect(isSecure('https://secure.com')).toBe(true); 
-//     expect(isSecure('https:/missingslash.org')).toBe(false); 
-//   });
-// });
+    expect(isSecure('http://www.insecure.com')).toBe(false); 
+    expect(isSecure('https://secure.com')).toBe(true); 
+    expect(isSecure('https:/missingslash.org')).toBe(false); 
+  });
+});
 
