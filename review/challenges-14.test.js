@@ -130,7 +130,24 @@ const sortBy = (property, objs) => {
 
 const detectTicTacToeWin = (board) => {
   // Solution code here...
-}
+  if (helperFunction(0, 0, 0, 1, 0, 2, board)) return true;
+  if (helperFunction(1, 0, 1, 1, 1, 2, board)) return true;
+  if (helperFunction(2, 0, 2, 1, 2, 2, board)) return true;
+
+  if (helperFunction(0, 0, 1, 0, 2, 0, board)) return true;
+  if (helperFunction(0, 1, 1, 1, 2, 1, board)) return true;
+  if (helperFunction(0, 2, 1, 2, 2, 2, board)) return true;
+
+  if (helperFunction(0, 0, 1, 1, 2, 2, board)) return true;
+  if (helperFunction(2, 0, 1, 1, 0, 2, board)) return true;
+  return false;
+};
+
+const helperFunction = (row1, col1, row2, col2, row3, col3, board) => {
+  if (board[row1][col1] === 'X' && board[row2][col2] === 'X' && board[row3][col3] === 'X') return true;
+  if (board[row1][col1] === 'O' && board[row2][col2] === 'O' && board[row3][col3] === 'O') return true;
+  return false;
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 5
@@ -199,25 +216,25 @@ describe('Testing challenge 3', () => {
       {name: 'Sweatshirt', price: 45},
       {name: 'Tote bag', price: 15},
     ]);
-    
+
   });
 
 });
 
-// describe('Testing challenge 4', () => {
-//   test('It should return true if there are three in a row', () => {
-//     expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
-//     expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
-//   });
+describe('Testing challenge 4', () => {
+  test('It should return true if there are three in a row', () => {
+    expect(detectTicTacToeWin([['X', '', 'O'], ['X', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(true);
+    expect(detectTicTacToeWin([['O', '', 'X'], ['X', 'O', 'X'], ['X', '', 'O']])).toStrictEqual(true);
+  });
 
-//   test('It should return false if there are not three in a row', () => {
-//     expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
-//   });
+  test('It should return false if there are not three in a row', () => {
+    expect(detectTicTacToeWin([['X', '', 'O'], ['O', 'O', ''], ['X', 'O', 'X']])).toStrictEqual(false);
+  });
 
-//   test('It should not treat empty 3 in row as winner', () => {
-//     expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
-//   });
-// });
+  test('It should not treat empty 3 in row as winner', () => {
+    expect(detectTicTacToeWin([['', '', ''], ['O', 'O', ''], ['X', 'O', 'X']])).toEqual(false);
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should check if url is https', () => {
