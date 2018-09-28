@@ -103,6 +103,7 @@ Which could be sorted by name or price.
 
 const sortBy = (property, objs) => {
   // Solution code here...
+  return objs.sort((a, b) => a[property] >  b[property]);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -172,36 +173,36 @@ describe('Testing challenge 2', () => {
   });
 });
 
-// describe('Testing challenge 3', () => {
-//   test('It should sort items by a price', () => {
+describe('Testing challenge 3', () => {
+  test('It should sort items by a price', () => {
 
-//     expect(sortBy('price', [
-//       {name: 'Sweatshirt', price: 45},
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Tote bag', price: 15}
-//     ])).toStrictEqual([
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Tote bag', price: 15},
-//       {name: 'Sweatshirt', price: 45},
-//     ]);
+    expect(sortBy('price', [
+      {name: 'Sweatshirt', price: 45},
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Tote bag', price: 15}
+    ])).toStrictEqual([
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Tote bag', price: 15},
+      {name: 'Sweatshirt', price: 45},
+    ]);
     
-//   });
+  });
 
-//   test('It should sort items by name', () => {
+  test('It should sort items by name', () => {
     
-//     expect(sortBy('name', [
-//       {name: 'Sweatshirt', price: 45},
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Tote bag', price: 15}
-//     ])).toStrictEqual([
-//       {name: 'Bookmark', price: 2.50},
-//       {name: 'Sweatshirt', price: 45},
-//       {name: 'Tote bag', price: 15},
-//     ]);
+    expect(sortBy('name', [
+      {name: 'Sweatshirt', price: 45},
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Tote bag', price: 15}
+    ])).toStrictEqual([
+      {name: 'Bookmark', price: 2.50},
+      {name: 'Sweatshirt', price: 45},
+      {name: 'Tote bag', price: 15},
+    ]);
     
-//   });
+  });
 
-// });
+});
 
 // describe('Testing challenge 4', () => {
 //   test('It should return true if there are three in a row', () => {
